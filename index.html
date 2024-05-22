@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тестування учнів</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            border: none;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+        
+
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Тестування учнів</h1>
+        <p>Питання: Хто літає?</p>
+        <form id="testForm">
+            <input type="radio" id="cat" name="answer" value="cat">
+            <label for="cat">Кіт</label><br>
+            <input type="radio" id="dog" name="answer" value="dog">
+            <label for="dog">Собака</label><br>
+            <input type="radio" id="bird" name="answer" value="bird">
+            <label for="bird">Птах</label><br>
+            <button type="button" onclick="checkAnswer()">Перевірити</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+    <script>
+        function checkAnswer() {
+            const form = document.getElementById('testForm');
+            const resultDiv = document.getElementById('result');
+            const answer = form.elements['answer'].value;
+
+            if (answer === 'bird') {
+                resultDiv.textContent = 'Правильно! Птах літає.';
+                resultDiv.style.color = 'green';
+            } else {
+                resultDiv.textContent = 'Неправильно. Спробуйте ще раз.';
+                resultDiv.style.color = 'red';
+            }
+        }
+    </script>
+</body>
+</html>
